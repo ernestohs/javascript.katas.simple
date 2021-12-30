@@ -1,0 +1,32 @@
+{
+  "name": "javascript.katas.simple",
+  "version": "1.0.0",
+  "description": "Javascript Katas",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "jest --coverage --no-cache"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ernestohs/javascript.katas.simple.git"
+  },
+  "keywords": [
+    "javascript",
+    "katas",
+    "jest",
+    "vanilla"
+  ],
+  "author": "Ernesto Herrera Salinas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ernestohs/javascript.katas.simple/issues"
+  },
+  "homepage": "https://github.com/ernestohs/javascript.katas.simple#readme",
+  "dependencies": {
+    "jest": "^27.4.5"
+  }
+}
