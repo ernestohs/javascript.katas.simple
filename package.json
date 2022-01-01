@@ -6,9 +6,11 @@
   "directories": {
     "test": "test"
   },
+  "type": "module",
   "scripts": {
     "test": "jest",
-    "test:coverage": "jest --coverage --no-cache"
+    "test:debug": "jest --watch --inspect-brk",
+    "test:clearcache": "jest --clear-cache"
   },
   "repository": {
     "type": "git",
@@ -26,7 +28,17 @@
     "url": "https://github.com/ernestohs/javascript.katas.simple/issues"
   },
   "homepage": "https://github.com/ernestohs/javascript.katas.simple#readme",
-  "dependencies": {
-    "jest": "^27.4.5"
+  "devDependencies": {
+    "@babel/preset-env": "^7.16.5",
+    "@types/jest": "^25.2.1",
+    "eslint": "^6.8.0",
+    "jest": "^25.5.3",
+    "jest-environment-jsdom-sixteen": "^1.0.3"
+  },
+  "jest": {
+    "verbose": true,
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
   }
 }

@@ -1,0 +1,25 @@
+[
+    {
+        "input": [ "a", "ab", "abc", "abcd", "abcde", "abcdef", "abcdefg" ],
+        "expected": "abcdefg"
+    },
+    {
+        "input": [ "a", "ab", "abc" ],
+        "expected": "abc"
+    },
+    {
+        "input": []
+    },
+    {
+        "input": [ "abc", "dfg", "hij" ],
+        "expected": "abc"
+    },
+    {
+        "input": [ "abc", "abc", "abc" ],
+        "expected": "abc"
+    },
+    {
+        "input": [ "abc" ],
+        "expected": "abc"
+    }
+]
