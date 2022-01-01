@@ -23,4 +23,4 @@ npm test
 ```
 
 # Reference
-- [Level up your JavaScript skills with 10 coding challenges] (https://www.educative.io/blog/level-up-javascript-coding-challenge)
+- [Level up your JavaScript skills with 10 coding challenges](https://www.educative.io/blog/level-up-javascript-coding-challenge)

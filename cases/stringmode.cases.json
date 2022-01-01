@@ -1,0 +1,22 @@
+[
+    {
+        "input": "aaaaaaaaaaaa",
+        "expected": "a"
+    },
+    {
+        "input": "3553853335",
+        "expected": "3"
+    },
+    {
+        "input": "355358533355",
+        "expected": "5"
+    },
+    {
+        "input": "35535853335",
+        "expected": "3"
+    },
+    {
+        "input": "010101010101010101010101010101010101",
+        "expected": "0"
+    }
+]
