@@ -1,4 +1,5 @@
 # :octocat: Javascript Simple Coding Katas
+[![CircleCI](https://circleci.com/gh/ernestohs/javascript.katas.simple.svg?style=svg&circle-token=b793fe2331d698e25cdac28c9a2427c06ae39431)](https://app.circleci.com/pipelines/github/ernestohs/javascript.katas.simple)
 
 ## What is a code kata?
 A code kata is an exercise in programming which helps a programmer hone their skills through practice and repetition.
