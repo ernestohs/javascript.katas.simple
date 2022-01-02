@@ -24,4 +24,5 @@ npm test
 ```
 
 # Reference
+I got most of the challenges from this article as a reference and take each challenge initial set into the wiki for guidance, I didn't use the solutions in the same article since it defeats the porpouse of level up my Javascript skills, instead I use my own implementations which could change or improve as I continue working with this repository in the next iterations.
 - [Level up your JavaScript skills with 10 coding challenges](https://www.educative.io/blog/level-up-javascript-coding-challenge)
