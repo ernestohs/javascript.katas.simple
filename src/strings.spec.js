@@ -1,7 +1,8 @@
-import { anagram, longest, stringMode } from "./strings";
+import { anagram, longest, stringMode, palindrome } from "./strings";
 import { default as longStringCases } from "../cases/longstring.cases.json";
 import { default as stringModeCases } from "../cases/stringmode.cases.json";
 import { default as anagramCases } from "../cases/anagrams.cases.json";
+import { default as palindromeCases } from "../cases/palindromeCases.cases.json";
 
 describe("String Katas", () => {
   describe("Write a function that accepts an array of strings. Return the longest string.", () => {
@@ -36,4 +37,13 @@ describe("String Katas", () => {
       });
     });
   });
+
+  describe("Given a string, write a function that will return whether or not that string is a palindrome.", () => {
+    palindromeCases.forEach((testCase) => {
+      it( `should say that "${testCase.input}" ${ testCase.expected ? 'is' : 'is not'} a palindrome`, ()=>{
+        const actual = palindrome(testCase.input)
+        expect(actual).toBe(testCase.expected)
+      })
+    })
+  })
 });
