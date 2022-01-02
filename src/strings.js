@@ -26,3 +26,9 @@ export function anagram(a, b) {
   }
   return result;
 }
+
+export function palindrome(input) {
+  const characters = input.toLowerCase().replace(/\s+/g, '')
+  const reversed = characters.split('').reverse().join('')
+  return reversed === characters
+}
