@@ -1,6 +1,7 @@
-import { longest, stringMode } from "./strings";
+import { anagram, longest, stringMode } from "./strings";
 import { default as longStringCases } from "../cases/longstring.cases.json";
 import { default as stringModeCases } from "../cases/stringmode.cases.json";
+import { default as anagramCases } from "../cases/anagrams.cases.json";
 
 describe("String Katas", () => {
   describe("Write a function that accepts an array of strings. Return the longest string.", () => {
@@ -20,6 +21,17 @@ describe("String Katas", () => {
     stringModeCases.forEach((testCase) => {
       it(`should get the character "${testCase.expected}" from the string "${testCase.input}"`, () => {
         const actual = stringMode(testCase.input);
+        expect(actual).toBe(testCase.expected);
+      });
+    });
+  });
+
+  describe("Create a function that takes in two strings as two parameters and returns a boolean that indicates whether or not the first string is an anagram of the second string.", () => {
+    anagramCases.forEach((testCase) => {
+      const [first] = testCase.input;
+      const [,second] = testCase.input;
+      it(`should say that "${first}" ${ testCase.expected ? 'is' : 'is not'} an anagram of "${second}"`, () => {
+        const actual = anagram(...testCase.input);
         expect(actual).toBe(testCase.expected);
       });
     });

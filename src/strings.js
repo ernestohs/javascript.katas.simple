@@ -19,5 +19,10 @@ export function stringMode(text) {
 }
 
 export function anagram(a, b) {
-
+  let result = false;
+  let deconstructed = (text) => text.toLowerCase().split("").sort().join();
+  if (b.length === a.length) {
+    result = deconstructed(a) === deconstructed(b);
+  }
+  return result;
 }
