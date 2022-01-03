@@ -40,3 +40,9 @@ export function areBracketsBalanced(text) {
   }
   return open.length === 0;
 }
+
+export function palindrome(input) {
+  const characters = input.toLowerCase().replace(/\s+/g, '')
+  const reversed = characters.split('').reverse().join('')
+  return reversed === characters
+}
