@@ -1,48 +1,77 @@
-export function longest(strings) {
-  if (strings.length === 0) return;
-  let max = strings[0].length;
-  strings.map((v) => (max = Math.max(max, v.length)));
-  return (strings.filter((v) => v.length == max) || [])[0];
+export const longest = (strings) => {
+  // guard clause for empty array or array with non string elements
+  if (!strings.length > 0 || !strings.every((el) => typeof el === 'string')) return
+
+  // return the longest string in the array
+  return strings.reduce((longest, cur) => {
+    if (longest.length < cur.length) return cur
+    return longest
+  }, '')
 }
 
-export function stringMode(text) {
-  const { max, ...counts } = (text || "").split("").reduce(
-    (a, c) => {
-      a[c] = a[c] ? a[c] + 1 : 1;
-      a.max = a.max < a[c] ? a[c] : a.max;
-      return a;
-    },
-    { max: 0 }
-  );
+export const stringMode = (str) => {
+  // object with the frequency of each character
+  const freq = Array.from(str).reduce((dict, char) => {
+    if (!dict[char]) dict[char] = 0
+    ++dict[char]
+    return dict
+  }, {})
 
-  return Object.entries(counts).filter(([k, v]) => v === max)[0][0];
+  // key with the highest value on freq
+  const mode = Object.keys(freq)
+    .reverse() // tests require first element in case of tie
+    .reduce((highest, cur) => (freq[highest] > freq[cur] ? highest : cur))
+
+  return mode
 }
 
-export function anagram(a, b) {
-  let result = false;
-  let deconstructed = (text) => text.toLowerCase().split("").sort().join();
-  if (b.length === a.length) {
-    result = deconstructed(a) === deconstructed(b);
+export const anagram = (strings) => {
+  const w0 = Array.from(strings[0].toLowerCase().replaceAll(' ', ''))
+  const w1 = Array.from(strings[1].toLowerCase().replaceAll(' ', ''))
+
+  // if cleaned inputs aren't the same length, it won't be an anagram
+  if (w0.length !== w1.length) return false
+
+  w0.forEach((w0El) => {
+    // if w0 has a char that is not in w1 -> return false
+    if (!w1.includes(w0El)) return false
+
+    w1.splice(w1.indexOf(w0El), 1)
+  })
+
+  return w1.length < 1
+}
+
+export const areBracketsBalanced = (str) => {
+  if (!str) return false
+
+  const braceTypes = ['{', '}', '[', ']', '(', ')']
+  const bracePairs = ['{}', '[]', '()']
+
+  const braces = Array.from(str).filter((char) => {
+    if (braceTypes.includes(char)) return char
+  })
+
+  // odd number of braces can't be balanced
+  if (braces.length % 2 !== 0) return false
+
+  // create character pairs from the ends to the middle
+  for (let i = 0; i < braces.length / 2; i++) {
+    // use iterator instead of for - every
+    const testPair = braces.at(i) + braces.at(-i - 1)
+
+    // test against bracePairs, if any check fails str isn't balanced
+    if (!bracePairs.includes(testPair)) return false
   }
-  return result;
+  // otherwise the string is balanced
+  return true
 }
 
-export function areBracketsBalanced(text) {
-  const bracketPairs = { "[": "]", "{": "}", "(": ")" };
-  const closingBrackets = new Set(Object.values(bracketPairs));
-  const open = [];
-  for (var char of text) {
-    if (closingBrackets.has(char)) {
-      if (char === open[open.length - 1]) open.pop();
-      else return false;
-    }
-    if (char in bracketPairs) open.push(bracketPairs[char]);
+export const palindrome = (str) => {
+  const text = str.toLowerCase().replaceAll(' ', '')
+  for (let i = 0; i < text.length / 2; i++) {
+    // use iterator instead of for - every
+    if (text.at(i) !== text.at(-i - 1)) return false
   }
-  return open.length === 0;
-}
-
-export function palindrome(input) {
-  const characters = input.toLowerCase().replace(/\s+/g, '')
-  const reversed = characters.split('').reverse().join('')
-  return reversed === characters
+  return true
 }

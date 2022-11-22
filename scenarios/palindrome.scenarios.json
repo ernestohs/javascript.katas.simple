@@ -1,0 +1,54 @@
+[
+  {
+    "input": "A nut for a jar of tuna",
+    "expected": true
+  },
+  {
+    "input": "Al lets Della call Ed Stella",
+    "expected": true
+  },
+  {
+    "input": "Amore Roma",
+    "expected": true
+  },
+  {
+    "input": "Borrow or rob",
+    "expected": true
+  },
+  {
+    "input": "Taco cat",
+    "expected": true
+  },
+  {
+    "input": "Murder for a jar of red rum",
+    "expected": true
+  },
+  {
+    "input": "Mom",
+    "expected": true
+  },
+  {
+    "input": "Oozy rat in a sanitary zoo",
+    "expected": true
+  },
+  {
+    "input": "here is a great palindrome poem called",
+    "expected": false
+  },
+  {
+    "input": "Given a string, write a function that will return whether or not that string is a palindrome.",
+    "expected": false
+  },
+  {
+    "input": "Do we need to consider whitespace",
+    "expected": false
+  },
+  {
+    "input": "Does the palindrome need to be in the dictionary",
+    "expected": false
+  },
+  {
+    "input": " means either true or false. true if the string is a palindrome",
+    "expected": false
+  }
+]

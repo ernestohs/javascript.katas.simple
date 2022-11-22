@@ -1,56 +1,59 @@
 export class Node {
-  constructor(data, next = null) {
-    this.data = data;
-    this.next = next;
+  constructor(value, nextNode) {
+    this.value = value
+    this.nextNode = nextNode
+  }
+  getValue() {
+    return this.value
+  }
+  getNextNode() {
+    return this.nextNode
+  }
+  setNextNode(nextNode) {
+    this.nextNode = nextNode
   }
 }
 
 export class LinkedList {
-
-  constructor(seed) {
-    this.head = null;
-    if (seed) {
-      seed.split(",").map((value) => {
-        const node = new Node(value);
-        if (!this.tail) {
-          this.head = node;
-          this.tail = node;
-        }
-        this.tail.next = node;
-        this.tail = node;
-      });
-    }
+  constructor(commaSeparatedValues) {
+    this.length = 0
+    const nodes = commaSeparatedValues.split(',').map((value) => new Node(value))
+    nodes.forEach((node, index, array) => {
+      this.setHead(node, array[index - 1])
+    })
   }
 
-  getFirst = () => this.head;
-  getLast = () => this.tail;
-
-  reverse() {
-    let prev = null;
-    let curr = this.head;
-    let next = curr.next;
-
-    while (curr) {
-      next = curr.next;
-      curr.next = prev;
-      prev = curr;
-      curr = next;
+  setHead(node, next) {
+    this.length++
+    if (next) {
+      node.setNextNode(next)
     }
-
-    this.head = prev;
-
-    return this;
+    this.head = node
   }
 
+  /**
+   * Returns string with the comma separated values of each node ("a,b,c").
+   * @returns string
+   */
   toString() {
-    let result = [];
-    let cursor = this.head;
+    let cursor = this.head
+    const array = []
+    // perform at least once in case 1 node length
+    array.push(cursor.getValue())
+    while (cursor.nextNode) {
+      cursor = cursor.getNextNode()
+      array.push(cursor.getValue())
+    }
+    return array.reverse().join()
+  }
 
-    do {
-      result.push(`${cursor.data}`);
-      cursor = cursor.next;
-    } while (cursor);
-
-    return result.join(",");
+  /**
+   * Returns new LinkedList in reverse order
+   * @returns A new LinkedList object with the reversed string.
+   */
+  reverse() {
+    const seed = this.toString()
+    const list = new LinkedList(seed.split('').reverse().join(''))
+    return list
   }
 }

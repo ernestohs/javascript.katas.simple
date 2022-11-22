@@ -1,0 +1,31 @@
+[
+  {
+    "input": ["a", "ab", "abc", "abcd", "abcde", "abcdef", "abcdefg"],
+    "expected": "abcdefg"
+  },
+  {
+    "input": ["abcdefg", "abcdef", "abcde", "abcd", "abc", "ab", "a"],
+    "expected": "abcdefg"
+  },
+  {
+    "input": ["abc", "dfg", "hij"],
+    "expected": "abc"
+  },
+  {
+    "input": ["abc", "abc", "abc"],
+    "expected": "abc"
+  },
+  {
+    "input": ["abc"],
+    "expected": "abc"
+  },
+  {
+    "input": []
+  },
+  {
+    "input": ["a", "ab", 4]
+  },
+  {
+    "input": [{}, [], 7]
+  }
+]

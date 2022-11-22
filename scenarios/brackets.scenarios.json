@@ -1,0 +1,50 @@
+[
+  {
+    "input": "{A}",
+    "expected": true
+  },
+  {
+    "input": "[A]",
+    "expected": true
+  },
+  {
+    "input": "(AB)",
+    "expected": true
+  },
+  {
+    "input": "({A})",
+    "expected": true
+  },
+  {
+    "input": "((A))",
+    "expected": true
+  },
+  {
+    "input": "[(A)]",
+    "expected": true
+  },
+  {
+    "input": "[A}",
+    "expected": false
+  },
+  {
+    "input": "(A]",
+    "expected": false
+  },
+  {
+    "input": "({A])",
+    "expected": false
+  },
+  {
+    "input": "([A))",
+    "expected": false
+  },
+  {
+    "input": "",
+    "expected": false
+  },
+  {
+    "input": "((Z)",
+    "expected": false
+  }
+]
