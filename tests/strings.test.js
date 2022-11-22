@@ -1,9 +1,9 @@
 // import cases
-import longestCases from '../scenarios/longstring.scenarios.json'
-import stringModeCases from '../scenarios/stringmode.scenarios.json'
-import anagramCases from '../scenarios/anagram.scenarios.json'
-import balancedBracketsCases from '../scenarios/brackets.scenarios.json'
-import palindromeCases from '../scenarios/palindrome.scenarios.json'
+import longestCases from './mock/longstring.scenarios.json'
+import stringModeCases from './mock/stringmode.scenarios.json'
+import anagramCases from './mock/anagram.scenarios.json'
+import balancedBracketsCases from './mock/brackets.scenarios.json'
+import palindromeCases from './mock/palindrome.scenarios.json'
 
 // import functions
 import { longest, stringMode, anagram, areBracketsBalanced, palindrome } from '../src/strings'

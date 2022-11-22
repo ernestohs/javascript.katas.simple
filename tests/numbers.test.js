@@ -1,5 +1,5 @@
 // import scenarios
-import armstrongNumberscenarios from '../scenarios/armstrong.scenarios.json'
+import armstrongNumberscenarios from './mock/armstrong.scenarios.json'
 
 // import functions
 import { armstrong } from '../src/numbers'

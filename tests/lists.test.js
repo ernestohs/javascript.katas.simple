@@ -1,5 +1,5 @@
 // import scenarios
-import reverseLinkedListScenarios from '../scenarios/reverseLinkedList.scenarios.json'
+import reverseLinkedListScenarios from './mock/reverseLinkedList.scenarios.json'
 
 // import class
 import { LinkedList } from '../src/lists'
