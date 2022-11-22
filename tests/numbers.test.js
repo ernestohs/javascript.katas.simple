@@ -1,5 +1,5 @@
 // import scenarios
-import armstrongNumberscenarios from './mock/armstrong.scenarios.json'
+import armstrongNumberCases from './mock/armstrong.cases.json'
 
 // import functions
 import { armstrong } from '../src/numbers'
@@ -7,7 +7,7 @@ import { armstrong } from '../src/numbers'
 // tests
 describe('Number Katas', () => {
   describe('An Armstrong number is an n-digit number that is equal to the sum of the nth powers of its digits. Determine if the input number is an Armstrong number. Return either true or false.', () => {
-    const cases = armstrongNumberscenarios
+    const cases = armstrongNumberCases
     cases.forEach((testCase) => {
       it(`should say that "${testCase.input}" ${testCase.expected ? 'is' : 'is not'} an armstrong number`, () => {
         const actual = armstrong(testCase.input)

@@ -1,5 +1,5 @@
 // import scenarios
-import reverseLinkedListScenarios from './mock/reverseLinkedList.scenarios.json'
+import reverseLinkedListCases from './mock/reverseLinkedList.cases.json'
 
 // import class
 import { LinkedList } from '../src/lists'
@@ -7,7 +7,7 @@ import { LinkedList } from '../src/lists'
 // tests
 describe('Linked List Katas', () => {
   describe('Create a Node class and a LinkedList class', () => {
-    const scenarios = reverseLinkedListScenarios
+    const scenarios = reverseLinkedListCases
     scenarios.forEach((testCase) => {
       it(`should reverse that "${testCase.input}" to "${testCase.expected}"`, () => {
         const ll = new LinkedList(testCase.input)

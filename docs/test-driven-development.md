@@ -147,7 +147,7 @@ We can import those cases on the test file and iterate over every element in the
 
 ```js
 import add from '../src/add.js'
-import addCases from './mock/add.scenarios.json'
+import addCases from './mock/add.cases.json'
 
 describe('add function', () => {
   addCases.foreach((testCase) => {
