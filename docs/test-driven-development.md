@@ -8,7 +8,7 @@ The TDD cycle looks like this:
 
 ## Getting started with Jest
 
-> [Jest Docs](https://jestjs.io/docs/getting-started)
+> [Jest docs](https://jestjs.io/docs/getting-started)
 
 Install Jest either globally or locally in the project:
 
@@ -147,13 +147,13 @@ We can import those cases on the test file and iterate over every element in the
 
 ```js
 import add from '../src/add.js'
-import importedScenarios from '../scenarios/add.scenarios.json'
+import addCases from './mock/add.scenarios.json'
 
 describe('add function', () => {
-  importedScenarios.foreach((scenario) => {
-    it(`Adding: ${scenario.input}\nShould return: ${scenario.expected}`, () => {
-      const actual = add(...scenario.input)
-      expect(actual).toBe(scenario.expected)
+  addCases.foreach((testCase) => {
+    it(`Adding: ${testCase.input}\nShould return: ${testCase.expected}`, () => {
+      const actual = add(...testCase.input)
+      expect(actual).toBe(testCase.expected)
     })
   })
 })
