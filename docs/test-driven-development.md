@@ -10,11 +10,10 @@ The TDD cycle looks like this:
 
 > [Jest docs](https://jestjs.io/docs/getting-started)
 
-Install Jest either globally or locally in the project:
+Install Jest:
 
 ```sh
-  npm install -g jest # Global
-  npm install -D jest # Local as dev dependency
+  npm install -D jest # dev dependency (-D, --save-dev)
 ```
 
 ### IntelliSense for Jest
@@ -43,13 +42,15 @@ By default `vscode` does not provide **IntelliSense** for all of jest's function
 
 > [Babel docs](https://babeljs.io/)
 
-By default we can not use modern JS's features (like modules), luckily `Babel` solves this issue for us:
+By default Jest doesn't support ES6 modules, throwing an error when you directly run tests with Jest if your code has any import/export statements, a solution is to add `Babel`.
+
+The jest docs suggest using babel by installing all dependencies, like so:
 
 ```sh
-  # install Babel's required dependencies
+  # Babel's required dependencies
   npm i -D babel-jest @babel/core @babel/preset-env
 
-  # create config file for babel
+  # config file for babel
   touch babel.config.js
 ```
 
@@ -60,6 +61,23 @@ module.exports = {
   presets: [['@babel/preset-env', { targets: { node: 'current' } }]],
 }
 ```
+
+But in newer version of `jest`, `babel-jest` is [now automatically loaded by Jest](https://www.developerload.com/jest-syntaxerror-cannot-use-import-statement-outside-a-module) and fully integrated. This allows for a simpler implementation:
+
+```sh
+  npm i -D @babel/preset-env
+  touch babel.config.json
+```
+
+- `babel.config.json`:
+
+```json
+{
+  "presets": ["@babel/preset-env"]
+}
+```
+
+> Note that the configuration is now made in a `json` file, rather than a `js` one.
 
 ## Setup to run tests
 
@@ -75,7 +93,7 @@ module.exports = {
 }
 ```
 
-- options can also be defined as values of a jest key:
+- options can also be defined as properties in a configuration object of a jest key:
 
 ```json
 {
@@ -85,29 +103,6 @@ module.exports = {
   }
 }
 ```
-
-### Prettier config
-
-We can either have:
-
-1. A `.prettierrc` file in our project's root
-   ```json
-   {
-     "printWidth": 120,
-     "semi": false,
-     "singleQuote": true
-   }
-   ```
-1. A `"prettier"` key in the `package.json` file with an options object.
-   ```json
-   {
-     "prettier": {
-       "printWidth": 120,
-       "semi": false,
-       "singleQuote": true
-     }
-   }
-   ```
 
 ## Writting a test
 
